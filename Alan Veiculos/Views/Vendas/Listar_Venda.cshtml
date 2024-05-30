@@ -1,0 +1,80 @@
+﻿@model IEnumerable<Alan_Veiculos.Models.VendasViewModel>
+
+@{
+    ViewData["Title"] = "Listagem de Vendas";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Funcionario_Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Veiculo_Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Cliente_Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Valor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Data_Hora)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Comissao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Garantia)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Funcionario_Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Veiculo_Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cliente_Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Valor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Data_Hora)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Comissao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Garantia)
+                </td>   
+                
+                <td>
+                    <a asp-action="Alterar_Venda" asp-route-id="@item.Id">Editar</a> |
+                    <a asp-action="Excluir_Venda" asp-route-id="@item.Id">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<p>
+    <a asp-action="Inserir_Venda">Criar Novo Venda</a>
+</p>

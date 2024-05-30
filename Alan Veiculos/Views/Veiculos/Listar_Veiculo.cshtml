@@ -1,0 +1,78 @@
+﻿@model IEnumerable<Alan_Veiculos.Models.VeiculosViewModel>
+
+@{
+    ViewData["Title"] = "Listagem de Veiculos";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Modelo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Placa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Ano)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Valor)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cpf)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cep)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Logradouro)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Bairro)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Localidade)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Uf)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Telefone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    <a asp-action="Alterar_Veiculo" asp-route-id="@item.Id">Editar</a> |
+                    <a asp-action="Excluir_Veiculo" asp-route-id="@item.Id">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<p>
+    <a asp-action="Inserir_Veiculo">Criar Novo Veiculo</a>
+</p>

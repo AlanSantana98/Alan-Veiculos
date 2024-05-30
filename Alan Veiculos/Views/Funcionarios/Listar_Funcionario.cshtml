@@ -1,0 +1,102 @@
+﻿@model IEnumerable<Alan_Veiculos.Models.FuncionariosViewModel>
+
+@{
+    ViewData["Title"] = "Listagem de Funcionarios";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Cpf)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Cep)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Logradouro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Bairro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Localidade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Uf)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Salario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Comissão)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Telefone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Email)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cpf)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cep)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Logradouro)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Bairro)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Localidade)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Uf)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Salario)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Comissão)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Telefone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    <a asp-action="Alterar_Funcionario" asp-route-id="@item.Id">Editar</a> |
+                    <a asp-action="Excluir_Funcionario" asp-route-id="@item.Id">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<p>
+    <a asp-action="Inserir_Funcionario">Criar Novo Cliente</a>
+</p>

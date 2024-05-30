@@ -1,0 +1,68 @@
+﻿@model Alan_Veiculos.Models.VendasViewModel
+
+@{
+    ViewData["Title"] = "Excluir Venda";
+}
+
+<h1>Excluir Venda</h1>
+
+<h3>Você tem certeza que deseja excluir este Venda?</h3>
+<div>
+    <h4>VendasViewModel</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Funcionario_Id)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Funcionario_Id)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Veiculo_Id)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Veiculo_Id)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Cliente_Id)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Cliente_Id)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Valor)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Valor)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Data_Hora)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Data_Hora)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Comissao)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Comissao)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Garantia)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Garantia)
+        </dd>
+    </dl>
+
+    <form asp-action="Excluir_Venda">
+        <input type="submit" value="Excluir" class="btn btn-danger" /> |
+        <a asp-action="Listar_Venda">Voltar à Lista</a>
+    </form>
+</div>

@@ -1,0 +1,56 @@
+﻿@model Alan_Veiculos.Models.VeiculosViewModel
+
+@{
+    ViewData["Title"] = "Excluir Veiculo";
+}
+
+<h1>Excluir Veiculo</h1>
+
+<h3>Você tem certeza que deseja excluir este Veiculo?</h3>
+<div>
+    <h4>VeiculosViewModel</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Id)
+        </dd>   
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Modelo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Modelo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Placa)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Placa)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Ano)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Ano)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Valor)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Valor)
+        </dd>      
+    </dl>
+
+    <form asp-action="Excluir_Veiculo">
+        <input type="submit" value="Excluir" class="btn btn-danger" /> |
+        <a asp-action="Listar_Veiculo">Voltar à Lista</a>
+    </form>
+</div>
