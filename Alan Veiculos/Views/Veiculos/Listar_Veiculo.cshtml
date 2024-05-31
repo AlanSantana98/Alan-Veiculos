@@ -38,32 +38,20 @@
                     @Html.DisplayFor(modelItem => item.Id)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Cpf)
-                </td>
-                <td>
                     @Html.DisplayFor(modelItem => item.Nome)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Cep)
+                    @Html.DisplayFor(modelItem => item.Modelo)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Logradouro)
+                    @Html.DisplayFor(modelItem => item.Placa)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Bairro)
+                    @Html.DisplayFor(modelItem => item.Ano)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Localidade)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Uf)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Telefone)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Email)
-                </td>
+                    @Html.DisplayFor(modelItem => item.Valor)
+                </td>        
                 <td>
                     <a asp-action="Alterar_Veiculo" asp-route-id="@item.Id">Editar</a> |
                     <a asp-action="Excluir_Veiculo" asp-route-id="@item.Id">Excluir</a>

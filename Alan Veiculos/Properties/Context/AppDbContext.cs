@@ -10,5 +10,9 @@ namespace Alan_Veiculos.Properties.Context
         }
 
         public DbSet<ClientesViewModel> Clientes { get; set; }
+        public DbSet<FuncionariosViewModel> Funcionarios { get; set; }
+        public DbSet<UsuariosViewModel> Usuarios { get; set; }
+        public DbSet<VeiculosViewModel> Veiculos { get; set; }
+        public DbSet<VendasViewModel> Vendas { get; set; }
     }
 }
