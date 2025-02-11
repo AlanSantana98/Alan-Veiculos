@@ -2,8 +2,9 @@ using Alan_Veiculos.Models;
 using Alan_Veiculos.Properties.Context;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Threading.Tasks;
 using MySqlConnector;
+using System;
+using System.Threading.Tasks;
 
 namespace Alan_Veiculos.Controllers
 {
@@ -33,11 +34,28 @@ namespace Alan_Veiculos.Controllers
         {
             if (ModelState.IsValid)
             {
-                await _context.Database.ExecuteSqlRawAsync(
-                    "CALL InserirVeiculo({0}, {1}, {2}, {3}, {4})",
-                    veiculo.Nome, veiculo.Modelo, veiculo.Placa, veiculo.Ano, veiculo.Valor
-                );
-                return RedirectToAction(nameof(Listar_Veiculo));
+                try
+                {
+                         await _context.Database.ExecuteSqlRawAsync(
+                         "CALL InserirVeiculo(@Nome, @Modelo, @Placa, @Ano, @Valor)",
+                         new MySqlParameter("@Nome", veiculo.Nome),
+                         new MySqlParameter("@Modelo", veiculo.Modelo),
+                         new MySqlParameter("@Placa", veiculo.Placa),
+                         new MySqlParameter("@Ano", veiculo.Ano),
+                         new MySqlParameter
+                         {
+                             ParameterName = "@Valor",
+                             Value = veiculo.Valor,
+                             MySqlDbType = MySqlDbType.Decimal
+                         }
+                     );
+                    return RedirectToAction(nameof(Listar_Veiculo));
+                }
+                catch (Exception ex)
+                {
+                    // Log the exception
+                    return StatusCode(500, "Ocorreu um erro ao tentar inserir o veículo. Por favor, tente novamente mais tarde.");
+                }
             }
             return View(veiculo);
         }
@@ -105,8 +123,16 @@ namespace Alan_Veiculos.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Excluir_VeiculoConfirmado(int id)
         {
-            await _context.Database.ExecuteSqlRawAsync("CALL ExcluirVeiculo({0})", id);
-            return RedirectToAction(nameof(Listar_Veiculo));
+            try
+            {
+                await _context.Database.ExecuteSqlRawAsync("CALL ExcluirVeiculo(@Id)", new MySqlParameter("@Id", id));
+                return RedirectToAction(nameof(Listar_Veiculo));
+            }
+            catch (Exception ex)
+            {
+                // Log the exception
+                return StatusCode(500, "Ocorreu um erro ao tentar excluir o veículo. Por favor, tente novamente mais tarde.");
+            }
         }
     }
 }

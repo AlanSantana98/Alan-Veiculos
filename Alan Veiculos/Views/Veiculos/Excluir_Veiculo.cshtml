@@ -1,14 +1,15 @@
 ﻿@model Alan_Veiculos.Models.VeiculosViewModel
 
 @{
-    ViewData["Title"] = "Excluir Veiculo";
+    ViewData["Title"] = "Excluir Veículo";
 }
 
-<h1>Excluir Veiculo</h1>
+<h1>@ViewData["Title"]</h1>
 
-<h3>Você tem certeza que deseja excluir este Veiculo?</h3>
+<h3>Você tem certeza que deseja excluir este veículo?</h3>
+
 <div>
-    <h4>VeiculosViewModel</h4>
+    <h4>Veículo</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
@@ -16,7 +17,7 @@
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Id)
-        </dd>   
+        </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Nome)
         </dt>
@@ -46,11 +47,11 @@
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Valor)
-        </dd>      
+        </dd>
     </dl>
 
     <form asp-action="Excluir_Veiculo">
-        <input type="submit" value="Excluir" class="btn btn-danger" /> |
-        <a asp-action="Listar_Veiculo">Voltar à Lista</a>
+        <button type="submit" class="btn btn-danger">Excluir</button>
+        <a asp-action="Listar_Veiculo" class="btn btn-secondary">Voltar à Lista</a>
     </form>
 </div>

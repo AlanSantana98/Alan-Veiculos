@@ -6,7 +6,9 @@
 
 <h1>@ViewData["Title"]</h1>
 
-<table class="table">
+@if (Model != null && Model.Any())
+{
+    <table class="table table-striped table-bordered table-hover">
     <thead>
         <tr>
             <th>
@@ -67,13 +69,18 @@
                 </td>   
                 
                 <td>
-                    <a asp-action="Alterar_Venda" asp-route-id="@item.Id">Editar</a> |
-                    <a asp-action="Excluir_Venda" asp-route-id="@item.Id">Excluir</a>
+                    <a asp-action="Alterar_Venda" asp-route-id="@item.Id" class="btn btn-warning btn-sm">Editar</a> |
+                    <a asp-action="Excluir_Venda" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Excluir</a>
                 </td>
             </tr>
         }
     </tbody>
-</table>
+    </table>
+}
+else
+{
+    <p>Nenhuma venda encontrada.</p>
+}
 <p>
     <a asp-action="Inserir_Venda">Criar Novo Venda</a>
 </p>

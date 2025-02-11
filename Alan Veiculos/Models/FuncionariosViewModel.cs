@@ -1,11 +1,11 @@
+
 namespace Alan_Veiculos.Models
 {
     public class FuncionariosViewModel
     {
-
         public int Id { get; set; }
         public string Cpf { get; set; }
-        public string Nome { get; set;}
+        public string Nome { get; set; }
         public string Cep { get; set; }
         public string Logradouro { get; set; }
         public string Bairro { get; set; }
@@ -21,3 +21,4 @@ namespace Alan_Veiculos.Models
         //public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
     }
 }
+

@@ -20,3 +20,12 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+/*body {
+    background-image: url('/imagens/carro.jpg');*/ /* Caminho da sua imagem */
+    /*background-size: cover;*/ /* Faz a imagem cobrir toda a área */
+    /*background-position: center;*/ /* Centraliza a imagem */
+    /*background-repeat: no-repeat;*/ /* Não repete a imagem */
+    /*height: 100vh;*/ /* Altura mínima da página */
+    /*margin: 0;*/ /* Remove margens padrão */
+/*}*/

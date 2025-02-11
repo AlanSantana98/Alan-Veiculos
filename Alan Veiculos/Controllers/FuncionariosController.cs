@@ -34,12 +34,39 @@ namespace Alan_Veiculos.Controllers
         {
             if (ModelState.IsValid)
             {
-                await _context.Database.ExecuteSqlRawAsync(
-                    "CALL InserirFuncionario({0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}, {9}, {10})",
-                    funcionario.Cpf, funcionario.Nome, funcionario.Cep, funcionario.Logradouro, funcionario.Bairro,
-                    funcionario.Localidade, funcionario.Uf, funcionario.Salario, funcionario.Comissão, funcionario.Telefone, funcionario.Email
-                );
-                return RedirectToAction(nameof(Listar_Funcionario));
+                try
+                {
+                    await _context.Database.ExecuteSqlRawAsync(
+                        "CALL InserirFuncionario(@Cpf, @Nome, @Cep, @Logradouro, @Bairro, @Localidade, @Uf, @Salario, @Comissao, @Telefone, @Email)",
+                        new MySqlParameter("@Cpf", funcionario.Cpf),
+                        new MySqlParameter("@Nome", funcionario.Nome),
+                        new MySqlParameter("@Cep", funcionario.Cep),
+                        new MySqlParameter("@Logradouro", funcionario.Logradouro),
+                        new MySqlParameter("@Bairro", funcionario.Bairro),
+                        new MySqlParameter("@Localidade", funcionario.Localidade),
+                        new MySqlParameter("@Uf", funcionario.Uf),
+                        new MySqlParameter
+                        {
+                            ParameterName = "@Salario",
+                            Value = funcionario.Salario,
+                            MySqlDbType = MySqlDbType.Decimal
+                        },
+                        new MySqlParameter
+                        {
+                            ParameterName = "@Comissao",
+                            Value = funcionario.Comissão,
+                            MySqlDbType = MySqlDbType.Decimal
+                        },
+                        new MySqlParameter("@Telefone", funcionario.Telefone),
+                        new MySqlParameter("@Email", funcionario.Email)
+                    );
+                    return RedirectToAction(nameof(Listar_Funcionario));
+                }
+                catch (Exception ex)
+                {
+                    // Log the exception
+                    return StatusCode(500, "Ocorreu um erro ao tentar inserir o funcionário.");
+                }
             }
             return View(funcionario);
         }
@@ -82,8 +109,18 @@ namespace Alan_Veiculos.Controllers
                         new MySqlParameter("@Bairro", funcionario.Bairro),
                         new MySqlParameter("@Localidade", funcionario.Localidade),
                         new MySqlParameter("@Uf", funcionario.Uf),
-                        new MySqlParameter("@Salario", funcionario.Salario),
-                        new MySqlParameter("@Comissão", funcionario.Comissão),
+                        new MySqlParameter
+                       {
+                           ParameterName = "@Salario",
+                           Value = funcionario.Salario,
+                           MySqlDbType = MySqlDbType.Decimal
+                       },
+                        new MySqlParameter
+                        {
+                            ParameterName = "@Comissao",
+                            Value = funcionario.Comissão,
+                            MySqlDbType = MySqlDbType.Decimal
+                        },
                         new MySqlParameter("@Telefone", funcionario.Telefone),
                         new MySqlParameter("@Email", funcionario.Email)
                     );
