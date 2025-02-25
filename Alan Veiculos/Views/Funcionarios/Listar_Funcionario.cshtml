@@ -23,9 +23,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.First().Cep)
             </th>
-            <th>
+           @*  <th>
                 @Html.DisplayNameFor(model => model.First().Logradouro)
-            </th>
+            </th> *@
             <th>
                 @Html.DisplayNameFor(model => model.First().Bairro)
             </th>
@@ -39,14 +39,14 @@
                 @Html.DisplayNameFor(model => model.First().Salario)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.First().Comissão)
+                @Html.DisplayNameFor(model => model.First().Comissao)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.First().Telefone)
             </th>
-            <th>
+         @*    <th>
                 @Html.DisplayNameFor(model => model.First().Email)
-            </th>
+            </th> *@
             <th></th>
         </tr>
     </thead>
@@ -66,9 +66,9 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Cep)
                 </td>
-                <td>
+             @*    <td>
                     @Html.DisplayFor(modelItem => item.Logradouro)
-                </td>
+                </td> *@
                 <td>
                     @Html.DisplayFor(modelItem => item.Bairro)
                 </td>
@@ -82,14 +82,14 @@
                     @Html.DisplayFor(modelItem => item.Salario)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Comissão)
+                    @Html.DisplayFor(modelItem => item.Comissao)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Telefone)
                 </td>
-                <td>
+              @*   <td>
                     @Html.DisplayFor(modelItem => item.Email)
-                </td>
+                </td> *@
                 <td>
                     <a asp-action="Alterar_Funcionario" asp-route-id="@item.Id" class="btn btn-warning btn-sm">Editar</a> |
                     <a asp-action="Excluir_Funcionario" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Excluir</a>

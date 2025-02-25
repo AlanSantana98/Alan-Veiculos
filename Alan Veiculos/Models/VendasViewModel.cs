@@ -9,7 +9,7 @@ namespace Alan_Veiculos.Models
         public decimal Valor { get; set; }
         public DateTime Data_Hora { get; set; }
         public decimal Comissao { get; set; }
-        public DateOnly Garantia { get; set; }
+        public int Garantia { get; set; }
 
         //public string? RequestId { get; set; }
         //public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);

@@ -45,18 +45,8 @@ namespace Alan_Veiculos.Controllers
                         new MySqlParameter("@Bairro", funcionario.Bairro),
                         new MySqlParameter("@Localidade", funcionario.Localidade),
                         new MySqlParameter("@Uf", funcionario.Uf),
-                        new MySqlParameter
-                        {
-                            ParameterName = "@Salario",
-                            Value = funcionario.Salario,
-                            MySqlDbType = MySqlDbType.Decimal
-                        },
-                        new MySqlParameter
-                        {
-                            ParameterName = "@Comissao",
-                            Value = funcionario.Comissão,
-                            MySqlDbType = MySqlDbType.Decimal
-                        },
+                        new MySqlParameter("@Salario", funcionario.Salario),
+                        new MySqlParameter("@Comissao", funcionario.Comissao),
                         new MySqlParameter("@Telefone", funcionario.Telefone),
                         new MySqlParameter("@Email", funcionario.Email)
                     );
@@ -100,7 +90,7 @@ namespace Alan_Veiculos.Controllers
                 try
                 {
                     await _context.Database.ExecuteSqlRawAsync(
-                        "CALL EditarFuncionario(@Id, @Cpf, @Nome, @Cep, @Logradouro, @Bairro, @Localidade, @Uf, @Salario, @Comissão, @Telefone, @Email)",
+                        "CALL EditarFuncionario(@Id, @Cpf, @Nome, @Cep, @Logradouro, @Bairro, @Localidade, @Uf, @Salario, @Comissao, @Telefone, @Email)",
                         new MySqlParameter("@Id", funcionario.Id),
                         new MySqlParameter("@Cpf", funcionario.Cpf),
                         new MySqlParameter("@Nome", funcionario.Nome),
@@ -109,18 +99,8 @@ namespace Alan_Veiculos.Controllers
                         new MySqlParameter("@Bairro", funcionario.Bairro),
                         new MySqlParameter("@Localidade", funcionario.Localidade),
                         new MySqlParameter("@Uf", funcionario.Uf),
-                        new MySqlParameter
-                       {
-                           ParameterName = "@Salario",
-                           Value = funcionario.Salario,
-                           MySqlDbType = MySqlDbType.Decimal
-                       },
-                        new MySqlParameter
-                        {
-                            ParameterName = "@Comissao",
-                            Value = funcionario.Comissão,
-                            MySqlDbType = MySqlDbType.Decimal
-                        },
+                        new MySqlParameter("@Salario", funcionario.Salario),
+                        new MySqlParameter("@Comissao", funcionario.Comissao),
                         new MySqlParameter("@Telefone", funcionario.Telefone),
                         new MySqlParameter("@Email", funcionario.Email)
                     );

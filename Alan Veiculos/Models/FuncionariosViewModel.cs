@@ -11,8 +11,8 @@ namespace Alan_Veiculos.Models
         public string Bairro { get; set; }
         public string Localidade { get; set; }
         public string Uf { get; set; }
-        public decimal Salario { get; set; }
-        public decimal Comissão { get; set; }
+        public double Salario { get; set; }
+        public double Comissao { get; set; }
         public string Telefone { get; set; }
         public string Email { get; set; }
 

@@ -34,13 +34,22 @@ namespace Alan_Veiculos.Controllers
         {
             if (ModelState.IsValid)
             {
-                venda.Data_Hora = DateTime.Now;  // Atribuindo data e hora atuais
+                try
+                {
 
-                await _context.Database.ExecuteSqlRawAsync(
-                    "CALL InserirVenda({0}, {1}, {2}, {3}, {4}, {5}, {6})",
-                    venda.Funcionario_Id, venda.Veiculo_Id, venda.Cliente_Id, venda.Valor, venda.Data_Hora, venda.Comissao, venda.Garantia
-                );
-                return RedirectToAction(nameof(Listar_Venda));
+                    venda.Data_Hora = DateTime.Now;  // Atribuindo data e hora atuais
+
+                    await _context.Database.ExecuteSqlRawAsync(
+                        "CALL InserirVenda({0}, {1}, {2}, {3}, {4}, {5}, {6})",
+                        venda.Funcionario_Id, venda.Veiculo_Id, venda.Cliente_Id, venda.Valor, venda.Data_Hora, venda.Comissao, venda.Garantia
+                    );
+                    return RedirectToAction(nameof(Listar_Venda));
+                }
+                catch (Exception ex)
+                {
+                    // Log the exception
+                    return StatusCode(500, "Ocorreu um erro ao tentar inserir a venda. Por favor, tente novamente mais tarde.");
+                }
             }
             return View(venda);
         }
