@@ -18,8 +18,42 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    /*background-color: #121212;*/
+    color: #ffffff;
+    margin-bottom: 60px;
 }
+
+p, h1, h2, h3, label, span {
+    color: #ffffff; /* Garante que todos os textos fiquem visíveis */
+}
+ul, ol {
+    color: #ffffff;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #ffffff;
+    color: #ffffff;
+}
+
+th {
+    background-color: #333; /* Cabeçalho mais destacado */
+}
+#imageSlider {
+    max-width: 50%;
+    margin: 0 auto;
+}
+
+.carousel-inner img {
+    width: 50%;
+    height: auto;
+}
+
+    
 
 /*body {
     background-image: url('/imagens/carro.jpg');*/ /* Caminho da sua imagem */
