@@ -35,10 +35,25 @@ table {
     border-collapse: collapse;
 }
 
-table, th, td {
+/*table, th, td {
     border: 1px solid #ffffff;
     color: #ffffff;
+}*/
+table {
+    width: 100%;
+    border-collapse: collapse;
 }
+
+    table th {
+        background-color: #333;
+        color: #000f;
+    }
+
+    table td {
+        color: #212529; /* texto escuro */
+        background-color: #f8f9fa; /* fundo claro */
+        border: 1px solid #dee2e6;
+    }
 
 th {
     background-color: #333; /* Cabeçalho mais destacado */
