@@ -68,7 +68,10 @@ th {
     height: auto;
 }
 
-    
+.form-group label {
+    color: #212529; /* padrão Bootstrap (escuro) */
+}
+
 
 /*body {
     background-image: url('/imagens/carro.jpg');*/ /* Caminho da sua imagem */
